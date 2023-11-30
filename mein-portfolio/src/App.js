@@ -19,14 +19,15 @@ import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 function App() {
   return (
     <ChakraProvider>
-      <Box bg="black" w="100vw" h="100vh">
+      <Box bg="black" w="100vw" h="50vh">
         <Canvas camera={{ position: [0, 0, 2] }}>
-          <OrbitControls></OrbitControls>
+          <OrbitControls />
           <ambientLight position={[0, 20, 0]} intensity={1} />
 
           <Cube />
         </Canvas>
       </Box>
+
       <Box bg="black" w="100vw" h="100vh">
         <ImageWithText />
         <About />
@@ -39,7 +40,7 @@ function Cube() {
   const mesh = useRef();
 
   useFrame((state, delta) => {
-    mesh.current.rotation.x += delta * 0.1;
+    mesh.current.rotation.x += delta * 0.5;
   });
 
   return (
