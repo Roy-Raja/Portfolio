@@ -17,7 +17,7 @@ import {
 function About() {
   return (
     <ChakraProvider>
-      <Card maxW="sm" mt={"10"}>
+      <Card maxW="sm" bg="rgba(255, 255, 255, 0.5)">
         <CardBody>
           <Stack>
             <div className="about">

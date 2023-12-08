@@ -22,13 +22,15 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { SiLinkedin, SiGithub } from "react-icons/si";
+
 import { motion } from "framer-motion";
 import imageSrc from "./profilbild.jpg";
 
 function ImageWithText({ imagePath, text, titel, link }) {
   return (
     <ChakraProvider>
-      <Card maxW="sm">
+      <Card maxW="sm" bg="rgba(255, 255, 255, 0.5)">
         <CardBody>
           <motion.div
             className="image-with-text-container"
@@ -65,26 +67,27 @@ function ImageWithText({ imagePath, text, titel, link }) {
               alignItems={"center"}
             >
               <Button
+                as="a" // Verwende "as" prop, um den Button als Link zu behandeln
                 flex={1}
                 fontSize={"sm"}
                 rounded={"full"}
                 _focus={{
                   bg: "gray.200",
                 }}
-                whileHover={{ scale: [null, 1.0, 1.1] }}
-                transition={{ duration: 0.8 }}
-              >
-                <Link href="https://github.com/Roy-Raja" isExternal>
-                  Github <ExternalLinkIcon mx="2px" />
-                </Link>
-              </Button>
+                leftIcon={<SiGithub />}
+                href="https://github.com/Roy-Raja" // GitHub-URL hier einfügen
+                target="_blank"
+                rel="noopener noreferrer"
+              ></Button>
 
               <Button
+                as="a" // Verwende "as" prop, um den Button als Link zu behandeln
                 flex={1}
                 fontSize={"sm"}
                 rounded={"full"}
                 bg={"blue.400"}
                 color={"white"}
+                leftIcon={<SiLinkedin />}
                 boxShadow={
                   "0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)"
                 }
@@ -94,14 +97,10 @@ function ImageWithText({ imagePath, text, titel, link }) {
                 _focus={{
                   bg: "blue.500",
                 }}
-              >
-                <Link
-                  href="https://.linkedin.com/in/roy-raja-59920926b"
-                  isExternal
-                >
-                  Linkedin <ExternalLinkIcon mx="2px" />
-                </Link>
-              </Button>
+                href={"https://www.linkedin.com/in/roy-raja-59920926b"} // LinkedIn-URL hier einfügen
+                target="_blank"
+                rel="noopener noreferrer"
+              ></Button>
             </Stack>
           </Stack>
         </CardBody>
@@ -126,7 +125,7 @@ function ImageWithText({ imagePath, text, titel, link }) {
         color={"whiteAlpha.900"}
         isExternal
       >
-        Github <ExternalLinkIcon mx="2px" />
+        Github 
       </Link> */}
     </ChakraProvider>
   );
